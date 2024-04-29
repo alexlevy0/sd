@@ -18,6 +18,7 @@ function Component(props: { message: string }) {
     <body style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'flex', backgroundColor: 'black' }}>
       <style dangerouslySetInnerHTML={{ __html: css }} />
       <h1>{props.message}</h1>
+      {/* @ts-ignore-next-line */}
       <marquee behavior="alternate" loop="1" scrollamount="15" direction="left">...</marquee>
     </body >
   );
