@@ -6,4 +6,3 @@ RUN bun run build
 USER bun
 EXPOSE 3000
 ENTRYPOINT ["./server.bun"]
-
