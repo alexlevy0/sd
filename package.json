@@ -3,7 +3,7 @@
   "module": "index.tsx",
   "scripts": {
     "dev": "bun run index.tsx",
-    "build": "bun build index.tsx --compile --outfile server"
+    "build": "bun build index.tsx --compile --outfile ./server.bun"
   },
   "type": "module",
   "devDependencies": {
