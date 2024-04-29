@@ -1,6 +1,10 @@
 {
   "name": "dev",
-  "module": "index.ts",
+  "module": "index.tsx",
+  "scripts": {
+    "dev": "bun run index.tsx",
+    "build": "bun build index.tsx --compile --outfile server"
+  },
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
