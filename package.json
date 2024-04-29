@@ -1,5 +1,5 @@
 {
-  "name": "dev",
+  "name": "abz",
   "module": "index.tsx",
   "scripts": {
     "dev": "bun run index.tsx",
