@@ -1,20 +1,31 @@
 {
-  "name": "abz",
-  "module": "index.tsx",
-  "scripts": {
-    "dev": "bun run index.tsx",
-    "build": "bun build index.tsx --compile --outfile ./server.bun"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/react-dom": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "react": "^19.0.0-beta-94eed63c49-20240425",
-    "react-dom": "^19.0.0-beta-94eed63c49-20240425"
-  }
+    "name": "abz",
+    "module": "index.tsx",
+    "scripts": {
+        "prestart": "bun install",
+        "start": "bun run index.tsx",
+        "dev": "bun run index.tsx",
+        "build": "bun build index.tsx --compile --outfile ./server.bun"
+    },
+    "type": "module",
+    "overrides": {
+        "@types/react": "npm:types-react@beta",
+        "@types/react-dom": "npm:types-react-dom@beta"
+    },
+    "dependencies": {
+        "react": "^19.0.0-beta-94eed63c49-20240425",
+        "react-dom": "^19.0.0-beta-94eed63c49-20240425",
+        "@types/react": "npm:types-react@beta",
+        "@types/react-dom": "npm:types-react-dom@beta"
+    },
+    "devDependencies": {
+        "@tsconfig/bun": "^1.0.5",
+        "@tsconfig/create-react-app": "^2.0.4",
+        "@tsconfig/recommended": "^1.0.6",
+        "@types/bun": "latest",
+        "@types/react-dom": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
 }
