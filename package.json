@@ -22,8 +22,7 @@
         "@tsconfig/bun": "^1.0.5",
         "@tsconfig/create-react-app": "^2.0.4",
         "@tsconfig/recommended": "^1.0.6",
-        "@types/bun": "latest",
-        "@types/react-dom": "latest"
+        "@types/bun": "latest"
     },
     "peerDependencies": {
         "typescript": "^5.0.0"
