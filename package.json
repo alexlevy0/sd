@@ -1,13 +1,13 @@
 {
-    "name": "abz",
+    "name": "sd",
     "module": "index.tsx",
+    "type": "module",
     "scripts": {
         "prestart": "bun install",
         "start": "bun run index.tsx",
         "dev": "bun run index.tsx",
         "build": "bun build index.tsx --compile --outfile ./server.bun"
     },
-    "type": "module",
     "overrides": {
         "@types/react": "npm:types-react@beta",
         "@types/react-dom": "npm:types-react-dom@beta"
