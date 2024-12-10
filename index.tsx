@@ -1,6 +1,6 @@
-import "react@^19.0.0-beta"
-import "react-dom@^19.0.0-beta"
-import { renderToReadableStream } from "react-dom/server"
+import "react";
+import "react-dom";
+import { renderToReadableStream } from "react-dom/server";
 
 const css = `
 @font-face {
@@ -11,41 +11,49 @@ const css = `
 }
 * { font-family: 'CLIG'; color: white;font-size: 32px}
 h1 {  font-size: 112px }
-`
+`;
 
 function Component({ message }: { readonly message: string }) {
-		return (
-				<body
-						style={{
-								flexDirection: "column",
-								justifyContent: "center",
-								alignItems: "center",
-								display: "flex",
-								backgroundColor: "black",
-						}}
-				>
-						<style dangerouslySetInnerHTML={{ __html: css }} />
-						<h1>{message}</h1>
-						<marquee
-								behavior="alternate"
-								loop="1"
-								scrollamount="15"
-								direction="left"
-						>
-								...
-						</marquee>
-				</body>
-		)
+	return (
+		<body
+			style={{
+				flexDirection: "column",
+				justifyContent: "center",
+				alignItems: "center",
+				display: "flex",
+				backgroundColor: "black",
+			}}
+		>
+			<style dangerouslySetInnerHTML={{ __html: css }} />
+			<h1>{message}</h1>
+			<div
+				style={{
+					whiteSpace: "nowrap",
+					overflow: "hidden",
+					animation: "marquee 1s linear infinite alternate",
+				}}
+			>
+				...
+			</div>
+			<style>{`
+				@keyframes marquee {
+					0% { transform: translateX(100%); }
+					100% { transform: translateX(-100%); }
+				}
+			`}</style>
+		</body>
+	);
 }
-
 const server = Bun.serve({
-		port: 3000,
-		async fetch() {
-				const stream = await renderToReadableStream(<Component message="Memory of the future" />)
-				return new Response(stream, {
-						headers: { "Content-Type": "text/html" },
-				})
-		},
-})
+	port: 3001,
+	async fetch() {
+		const stream = await renderToReadableStream(
+			<Component message="Memory-for-Future" />
+		);
+		return new Response(stream, {
+			headers: { "Content-Type": "text/html" },
+		});
+	},
+});
 
-console.log(`Server running @ ${server.hostname}:${server.port}`)
+console.log(`Server running @ ${server.hostname}:${server.port}`);
